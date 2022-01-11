@@ -4,9 +4,20 @@
 
 #Ask user for the name of the file or directory
 
+echo "Please input the file you are looking for"
 read userInput
 
-#Print the type of file
-echo $(file -b $userInput); echo $(ls -l $userInput) 
 
+if [ -e $userInput  ]
+then
+  #Print the type of file
+  echo "The file is a $(file -ib $userInput)"
 
+  #Print file properties
+  echo $(ls -l $userInput)
+
+else
+
+echo "the file does not exist"
+
+fi
